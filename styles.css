@@ -102,3 +102,22 @@ button:hover {
     cursor: pointer;
     font-size: 20px;
 }
+
+.text-container {
+    display: inline-block;
+    max-width: 300px; /* Adjust width as needed */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.text-container.expanded {
+    white-space: normal; /* Allows full text to show when expanded */
+}
+
+.toggle-text {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

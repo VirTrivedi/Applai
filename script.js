@@ -62,7 +62,7 @@ function openApplicantModal(jobTitle) {
     const applicants = jobApplicants[jobTitle].applicants || [];
     applicants.forEach(applicant => {
         const li = document.createElement('li');
-        li.textContent = `${applicant.name}`;
+        li.textContent = `${applicant.name} `;
         const resumeLink = document.createElement('a');
         resumeLink.href = applicant.resume;
         resumeLink.target = "_blank";
@@ -89,17 +89,17 @@ function populateApplicantView() {
     const jobTitles = Object.keys(jobApplicants);
     jobTitles.forEach(jobTitle => {
         const jobDetails = jobApplicants[jobTitle];
-        const jobDescription = jobDetails.description || "No job description"; // Default message
+        const jobDescription = jobDetails.description;
 
         const jobCard = document.createElement('div');
         jobCard.className = 'job-posting';
         jobCard.innerHTML = `
             <h3>${jobTitle}</h3>
-            <p>${jobDescription}</p>
             <p>Company: ${jobDetails.company}</p>
             <p>Location: ${jobDetails.location}</p>
             <h4>Apply</h4>
             <input type="text" placeholder="Applicant Name" class="applicantName" required>
+            <p>Please enter resume below</p>
             <input type="file" accept=".pdf" class="applicantResume" required>
             <button class="applyButton">Apply</button>
         `;
